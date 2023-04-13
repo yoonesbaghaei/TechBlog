@@ -1,15 +1,14 @@
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tech_blog/colors.dart';
-import 'package:tech_blog/gen/assets.gen.dart';
-import 'package:tech_blog/view/splash_screen.dart';
+import 'package:tech_blog/view/register_intro.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor: myColors.scafoldBG,
+      statusBarColor: MyColors.scafoldBG,
       statusBarIconBrightness: Brightness.dark,
-      systemNavigationBarColor: myColors.scafoldBG,
+      systemNavigationBarColor: MyColors.scafoldBG,
       systemNavigationBarIconBrightness: Brightness.dark));
   runApp(const MyApp());
 }
@@ -19,6 +18,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var textTheme = Theme
+        .of(context)
+        .textTheme;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       localizationsDelegates: const [
@@ -29,41 +31,69 @@ class MyApp extends StatelessWidget {
       supportedLocales: const [
         Locale('fa', ''), // persian
       ],
-      home: splashScreen(),
+      home: const RegisterIntro(),
       theme: ThemeData(
+        inputDecorationTheme: InputDecorationTheme(
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(16),
+          borderSide: const BorderSide(width: 2)
+          ),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(style: ButtonStyle(
+          textStyle: MaterialStateProperty.resolveWith((states) {
+            if (states.contains(MaterialState.pressed)) {
+              return textTheme.displayLarge;
+            }
+            return textTheme.titleMedium;
+          }),
+          backgroundColor: MaterialStateProperty.resolveWith((states) {
+            if (states.contains(MaterialState.pressed)) {
+              return const Color.fromARGB(255, 138, 75, 155);
+            }
+            return MyColors.primaryColor;
+          }),
+        ),),
           fontFamily: 'dana',
           brightness: Brightness.light,
           textTheme:  const TextTheme(
+            titleSmall: TextStyle(fontFamily: 'dana',
+                fontSize: 14,
+                fontWeight: FontWeight.w700,
+                color: MyColors.lightText),
             displayLarge: TextStyle(
                 fontFamily: 'dana',
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
-                color: myColors.lightText),
+                color: MyColors.lightText),
             titleMedium:TextStyle(
                 fontFamily: 'dana',
                 fontSize: 16,
                 fontWeight: FontWeight.w300,
-                color: myColors.subTitleText),
+                color: MyColors.subTitleText),
             displayMedium: TextStyle(
                 fontFamily: 'dana',
                 fontSize: 14,
-                fontWeight: FontWeight.w300,
-                color: Colors.white),
+                fontWeight: FontWeight.w700,
+                color: MyColors.infoSubTitleArticle),
             displaySmall: TextStyle(
                 fontFamily: 'dana',
                 fontSize: 14,
                 fontWeight: FontWeight.w700,
-                color: myColors.colorHotList),
+                color: MyColors.colorHotList),
             headlineMedium: TextStyle(
                 fontFamily: 'dana',
                 fontSize: 14,
                 fontWeight: FontWeight.w700,
-                color: Color.fromARGB(255, 70, 70, 70)),
+                color: MyColors.primaryColor),
             bodyLarge: TextStyle(
                 fontFamily: 'dana',
                 fontSize: 13,
                 fontWeight: FontWeight.w700,
                 color: Colors.black),
+            labelSmall: TextStyle(
+                fontFamily: 'dana',
+                fontSize: 13,
+                fontWeight: FontWeight.w700,
+                color:MyColors.hintText),
           )),
     );
   }

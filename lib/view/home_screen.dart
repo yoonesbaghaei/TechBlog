@@ -1,13 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../Strings.dart';
+import '../strings.dart';
 import '../colors.dart';
 import '../gen/assets.gen.dart';
 import '../models/fake_data.dart';
 
-class homeScreen extends StatelessWidget {
-  const homeScreen({
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({
     super.key,
     required this.size,
     required this.textTheme,
@@ -27,15 +26,15 @@ class homeScreen extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
         child: Column(children: [
-          homePagePoster(size: size, textTheme: textTheme),
+          HomePagePoster(size: size, textTheme: textTheme),
           const SizedBox(height: 32),
-          homePageTagList(bodyMargin: bodyMargin, textTheme: textTheme),
-          seeMoreBlog(size: size, bodyMargin: bodyMargin, textTheme: textTheme),
-          homePageBlogList(
+          HomePageTagList(bodyMargin: bodyMargin, textTheme: textTheme),
+          SeeMoreBlog(size: size, bodyMargin: bodyMargin, textTheme: textTheme),
+          HomePageBlogList(
               size: size, bodyMargin: bodyMargin, textTheme: textTheme),
-          seeMorePodcast(
+          SeeMorePodcast(
               size: size, bodyMargin: bodyMargin, textTheme: textTheme),
-          homePagePodcastList(
+          HomePagePodcastList(
               size: size, bodyMargin: bodyMargin, textTheme: textTheme),
         ]),
       ),
@@ -43,8 +42,8 @@ class homeScreen extends StatelessWidget {
   }
 }
 
-class homePagePoster extends StatelessWidget {
-  const homePagePoster({
+class HomePagePoster extends StatelessWidget {
+  const HomePagePoster({
     super.key,
     required this.size,
     required this.textTheme,
@@ -119,8 +118,8 @@ class homePagePoster extends StatelessWidget {
   }
 }
 
-class homePageTagList extends StatelessWidget {
-  const homePageTagList({
+class HomePageTagList extends StatelessWidget {
+  const HomePageTagList({
     super.key,
     required this.bodyMargin,
     required this.textTheme,
@@ -163,7 +162,7 @@ class homePageTagList extends StatelessWidget {
                       ),
                       Text(
                         tagList[index].title,
-                        style: textTheme.displayMedium,
+                        style: textTheme.titleSmall,
                       )
                     ],
                   ),
@@ -175,8 +174,8 @@ class homePageTagList extends StatelessWidget {
   }
 }
 
-class seeMoreBlog extends StatelessWidget {
-  const seeMoreBlog({
+class SeeMoreBlog extends StatelessWidget {
+  const SeeMoreBlog({
     super.key,
     required this.size,
     required this.bodyMargin,
@@ -190,25 +189,25 @@ class seeMoreBlog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(0, size.height / 20, bodyMargin, 0),
+      padding: EdgeInsets.fromLTRB(0, size.height / 40, bodyMargin, 0),
       child: Row(
         children: [
           ImageIcon(
-            Assets.icons.pen.provider(),
-            color: myColors.colorHotList,
+            Assets.icons.bluePen.provider(),
+            color: MyColors.colorHotList,
           ),
           const SizedBox(
             width: 5,
           ),
-          Text(Strings.viewHotBlog, style: textTheme.displaySmall)
+          Text(MyStrings.viewHotBlog, style: textTheme.displaySmall)
         ],
       ),
     );
   }
 }
 
-class homePageBlogList extends StatelessWidget {
-  const homePageBlogList({
+class HomePageBlogList extends StatelessWidget {
+  const HomePageBlogList({
     super.key,
     required this.size,
     required this.bodyMargin,
@@ -234,7 +233,7 @@ class homePageBlogList extends StatelessWidget {
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(15, 25, 0, 8),
+                    padding: const EdgeInsets.fromLTRB(15, 15, 0, 8),
                     child: SizedBox(
                       height: size.height / 4.5,
                       width: size.width / 2.2,
@@ -303,8 +302,8 @@ class homePageBlogList extends StatelessWidget {
   }
 }
 
-class seeMorePodcast extends StatelessWidget {
-  const seeMorePodcast({
+class SeeMorePodcast extends StatelessWidget {
+  const SeeMorePodcast({
     super.key,
     required this.size,
     required this.bodyMargin,
@@ -318,25 +317,25 @@ class seeMorePodcast extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(0, size.height / 20, bodyMargin, 0),
+      padding: EdgeInsets.fromLTRB(0, size.height / 40, bodyMargin, 0),
       child: Row(
         children: [
           ImageIcon(
             Assets.icons.record.provider(),
-            color: myColors.colorHotList,
+            color: MyColors.colorHotList,
           ),
           const SizedBox(
             width: 5,
           ),
-          Text(Strings.viewHotPodcast, style: textTheme.displaySmall)
+          Text(MyStrings.viewHotPodcast, style: textTheme.displaySmall)
         ],
       ),
     );
   }
 }
 
-class homePagePodcastList extends StatelessWidget {
-  const homePagePodcastList({
+class HomePagePodcastList extends StatelessWidget {
+  const HomePagePodcastList({
     super.key,
     required this.size,
     required this.bodyMargin,
@@ -362,7 +361,7 @@ class homePagePodcastList extends StatelessWidget {
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(15, 25, 0, 8),
+                    padding: const EdgeInsets.fromLTRB(15, 15, 0, 8),
                     child: SizedBox(
                       height: size.height / 4.5,
                       width: size.width / 2.2,

@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-class myColors {
+class MyColors {
   static const Color colorHotList = Color.fromARGB(255, 40, 107, 184);
   static const Color textTitle = Color.fromARGB(255, 0, 0, 0);
   static const Color scafoldBG = Color.fromARGB(255, 255, 255, 255);
@@ -12,6 +12,8 @@ class myColors {
   static const Color textArticle = Color.fromARGB(255, 72, 72, 72 );
   static const Color primaryColor = Color.fromARGB(255, 68, 4, 87 );
   static const Color subTitleText = Color.fromARGB(203, 255, 255, 255);
+  static const Color dividerColor = Color.fromARGB(255, 112, 112, 112);
+  static const Color hintText =  Color.fromARGB(255, 219, 219, 219);
 }
 
 class GradientColors {
