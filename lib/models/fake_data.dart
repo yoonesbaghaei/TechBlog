@@ -9,7 +9,7 @@ Map homePagePosterMap = {
   "title": "دوازده قدم برنامه نویسی یک دوره",
   "view": "254"
 };
-
+List<HashTagModel> selectedTags=[];
 //hashTag fake data
 List<HashTagModel> tagList = [
   HashTagModel(title: "جاوا"),
@@ -19,6 +19,7 @@ List<HashTagModel> tagList = [
   HashTagModel(title: "iot"),
   HashTagModel(title: "پایتون"),
   HashTagModel(title: "دارت"),
+  HashTagModel(title: "وب"),
 ];
 
 //blog Model data

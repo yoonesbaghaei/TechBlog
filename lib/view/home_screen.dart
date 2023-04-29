@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tech_blog/my_component.dart';
 
 import '../strings.dart';
 import '../colors.dart';
@@ -140,39 +141,14 @@ class HomePageTagList extends StatelessWidget {
           return Padding(
             padding:
                 EdgeInsets.fromLTRB(5, 12, index == 0 ? bodyMargin : 12, 12),
-            child: Container(
-                height: 60,
-                decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                    gradient: LinearGradient(
-                        colors: GradientColors.tags,
-                        begin: Alignment.centerRight,
-                        end: Alignment.centerLeft)),
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
-                  child: Row(
-                    children: [
-                      ImageIcon(
-                        Assets.icons.hashTag.provider(),
-                        color: Colors.white,
-                        size: 16,
-                      ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      Text(
-                        tagList[index].title,
-                        style: textTheme.titleSmall,
-                      )
-                    ],
-                  ),
-                )),
+            child: MainTags(textTheme: textTheme, index: index,),
           );
         },
       ),
     );
   }
 }
+
 
 class SeeMoreBlog extends StatelessWidget {
   const SeeMoreBlog({

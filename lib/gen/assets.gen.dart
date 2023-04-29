@@ -20,6 +20,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/bluePen.png
   AssetGenImage get bluePen => const AssetGenImage('assets/icons/bluePen.png');
 
+  /// File path: assets/icons/flash.png
+  AssetGenImage get flash => const AssetGenImage('assets/icons/flash.png');
+
   /// File path: assets/icons/home.png
   AssetGenImage get home => const AssetGenImage('assets/icons/home.png');
 
@@ -33,7 +36,8 @@ class $AssetsIconsGen {
   AssetGenImage get user => const AssetGenImage('assets/icons/user.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [hashTag, bluePen, home, par, record, user];
+  List<AssetGenImage> get values =>
+      [hashTag, bluePen, flash, home, par, record, user];
 }
 
 class $AssetsImagesGen {
@@ -121,7 +125,16 @@ class AssetGenImage {
     );
   }
 
-  ImageProvider provider() => AssetImage(_assetName);
+  ImageProvider provider({
+    AssetBundle? bundle,
+    String? package,
+  }) {
+    return AssetImage(
+      _assetName,
+      bundle: bundle,
+      package: package,
+    );
+  }
 
   String get path => _assetName;
 
@@ -148,9 +161,9 @@ class SvgGenImage {
     bool excludeFromSemantics = false,
     SvgTheme theme = const SvgTheme(),
     ColorFilter? colorFilter,
+    Clip clipBehavior = Clip.hardEdge,
     @deprecated Color? color,
     @deprecated BlendMode colorBlendMode = BlendMode.srcIn,
-    @deprecated Clip? clipBehavior,
     @deprecated bool cacheColorFilter = false,
   }) {
     return SvgPicture.asset(
@@ -171,6 +184,7 @@ class SvgGenImage {
       colorFilter: colorFilter,
       color: color,
       colorBlendMode: colorBlendMode,
+      clipBehavior: clipBehavior,
       cacheColorFilter: cacheColorFilter,
     );
   }

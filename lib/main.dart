@@ -2,7 +2,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tech_blog/colors.dart';
-import 'package:tech_blog/view/register_intro.dart';
+import 'package:tech_blog/view/main_screen.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: const [
         Locale('fa', ''), // persian
       ],
-      home: const RegisterIntro(),
+      home: const MainScreen(),
       theme: ThemeData(
         inputDecorationTheme: InputDecorationTheme(
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(16),
@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
           textTheme:  const TextTheme(
             titleSmall: TextStyle(fontFamily: 'dana',
                 fontSize: 14,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w300,
                 color: MyColors.lightText),
             displayLarge: TextStyle(
                 fontFamily: 'dana',
@@ -83,6 +83,11 @@ class MyApp extends StatelessWidget {
                 fontFamily: 'dana',
                 fontSize: 14,
                 fontWeight: FontWeight.w700,
+                color: MyColors.primaryColor),
+            labelMedium: TextStyle(
+                fontFamily: 'dana',
+                fontSize: 14,
+                fontWeight: FontWeight.w300,
                 color: MyColors.primaryColor),
             bodyLarge: TextStyle(
                 fontFamily: 'dana',
