@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tech_blog/component/colors.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
-import '../colors.dart';
-import 'models/fake_data.dart';
+import 'package:tech_blog/models/fake_data.dart';
+
 
 class ThecDivider extends StatelessWidget {
   const ThecDivider({

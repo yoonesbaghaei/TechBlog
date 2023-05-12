@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/models/fake_data.dart';
-import 'package:tech_blog/my_component.dart';
-import 'package:tech_blog/strings.dart';
+import 'package:tech_blog/component/strings.dart';
+
+import '../component/my_component.dart';
 
 class MyCats extends StatefulWidget {
   const MyCats({Key? key}) : super(key: key);

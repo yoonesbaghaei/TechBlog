@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tech_blog/colors.dart';
+import 'package:tech_blog/component/colors.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/view/profile_screen.dart';
 import 'package:tech_blog/view/register_intro.dart';
