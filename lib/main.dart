@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tech_blog/component/colors.dart';
 import 'package:tech_blog/view/main_screen.dart';
+import 'package:tech_blog/view/splash_screen.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: const [
         Locale('fa', ''), // persian
       ],
-      home: const MainScreen(),
+      home:  const SplashScreen(),
       theme: ThemeData(
         inputDecorationTheme: InputDecorationTheme(
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(16),

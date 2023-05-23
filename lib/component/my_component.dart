@@ -1,7 +1,10 @@
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:tech_blog/component/colors.dart';
+import 'package:tech_blog/component/strings.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/models/fake_data.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 class ThecDivider extends StatelessWidget {
@@ -65,3 +68,14 @@ class MainTags extends StatelessWidget {
         ));
   }
 }
+
+
+myLaunchUrl(String url)async{
+var _uri = Uri.parse(url);
+  if(!await canLaunchUrl(_uri)){
+  await launchUrl(_uri);
+  }else{
+    log("could not launch ${_uri.toString()} ");
+  }
+}
+

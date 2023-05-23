@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/models/fake_data.dart';
 import 'package:tech_blog/component/strings.dart';
-
+import 'package:tech_blog/view/main_screen.dart';
 import '../component/my_component.dart';
 
 class MyCats extends StatefulWidget {
@@ -166,7 +168,7 @@ class _MyCatsState extends State<MyCats> {
                       padding: EdgeInsets.only(top: size.height/20),
                       child: ElevatedButton(
                         onPressed: (() {
-                          Navigator.popUntil(context, ModalRoute.withName('/'));
+                          Get.to(MainScreen());
                         }),
                         child: const Text(
                           "تایید",

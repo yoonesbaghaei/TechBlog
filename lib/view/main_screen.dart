@@ -1,22 +1,31 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:tech_blog/component/api_constant.dart';
 import 'package:tech_blog/component/colors.dart';
+import 'package:tech_blog/component/my_component.dart';
+import 'package:tech_blog/component/strings.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
+import 'package:tech_blog/services/dio_service.dart';
 import 'package:tech_blog/view/profile_screen.dart';
 import 'package:tech_blog/view/register_intro.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'home_screen.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
 
-  @override
-  State<MainScreen> createState() => _MainScreenState();
-}
 final GlobalKey<ScaffoldState> _key = GlobalKey();
-class _MainScreenState extends State<MainScreen> {
-  var selectedPageIndex = 0;
+class MainScreen extends StatelessWidget {
+  RxInt selectedPageIndex = 0.obs;
+
+  MainScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+
+    DioService().getMethod(ApiConstant.getHomeItem);
+
     var textTheme = Theme.of(context).textTheme;
     var size = MediaQuery.of(context).size;
     double bodyMargin = size.width / 12.3;
@@ -53,14 +62,19 @@ class _MainScreenState extends State<MainScreen> {
                 ),
                 ListTile(
                   title: Text('اشتراک گذاری تک بلاگ', style: textTheme.bodyLarge),
-                  onTap: (() {}),
+                  onTap: (() async{
+                    await Share.share(MyStrings.shareText);
+                  }),
                 ),
                 const Divider(
                   color: MyColors.dividerColor,
                 ),
                 ListTile(
                   title: Text('تک‌بلاگ در گیت هاب', style: textTheme.bodyLarge),
-                  onTap: (() {}),
+                  onTap: (() async{
+                    myLaunchUrl(MyStrings.techBlogGithubUrl);
+
+                  }),
                 ),
               ],
             ),
@@ -92,22 +106,22 @@ class _MainScreenState extends State<MainScreen> {
         ),
         body: Stack(children: [
           Positioned.fill(
-              child: IndexedStack(
-            index: selectedPageIndex,
-            children: [
-              HomeScreen(
-                  size: size, textTheme: textTheme, bodyMargin: bodyMargin),
-              ProfileScreen(
-                  size: size, textTheme: textTheme, bodyMargin: bodyMargin)
-            ],
-          )),
+              child: Obx(() => IndexedStack(
+                index: selectedPageIndex.value,
+                children: [
+                  HomeScreen(
+                      size: size, textTheme: textTheme, bodyMargin: bodyMargin),
+                  ProfileScreen(
+                      size: size, textTheme: textTheme, bodyMargin: bodyMargin)
+                ],
+              ))
+          ),
           BottomNavigation(
             size: size,
             bodyMargin: bodyMargin,
             changeScreen: (int value) {
-              setState(() {
-                selectedPageIndex = value;
-              });
+                selectedPageIndex.value = value;
+
             },
           ),
         ]),

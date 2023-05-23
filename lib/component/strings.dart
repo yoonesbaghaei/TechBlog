@@ -1,4 +1,5 @@
 class MyStrings{
+  static const String techBlogGithubUrl = "https://github.com/yoonesbaghaei/TechBlog/";
   static const String viewHotBlog = "مشاهده داغ ترین نوشته ها ";
   static const String viewHotPodcast = "مشاهده داغ ترین پادکست ها ";
   static const String relatedArticle = "نوشته های مرتبط ";
@@ -18,5 +19,10 @@ class MyStrings{
 
   static const String successFullRegistration = '''تبریک میگم ، ایمیل با موفقیت تایید شد
 لطفا اطلاعات ثبت نام رو کامل کن''';
+  static const String shareText = '''
+  
+  من از تکبلاگ استفاده میکنم ، پیشنهاد میدم تو هم استفاده کن . 
+  
+  ''';
 
 }
